@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import AddTodo from './components/AddTodo';
+import Counter from './components/Counter';
+import Decrement from './components/Decrement';
+import Increment from './components/Increment';
+import Todos from './components/Todos';
 import Todos2 from './components/Todos2';
 import './App.css';
 class App extends Component {
@@ -13,6 +18,14 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <h3>Counter</h3>
+        <Counter />
+        <Decrement />
+        <Increment />
+        <h3>TODOS</h3>
+        <AddTodo />
+        <Todos />
+        <h3>TODOS 2</h3>
         <Todos2 />
       </div>
     );

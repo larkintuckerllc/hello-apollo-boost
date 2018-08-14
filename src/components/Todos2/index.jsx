@@ -10,7 +10,9 @@ const Todos2View = ({ error, loading, todos }) => {
   return (
     todos.map(todo => (
       <Todo2
+        completed={todo.completed}
         key={todo.id}
+        id={todo.id}
         title={todo.title}
       />
     ))
@@ -26,6 +28,7 @@ const GET_TODOS = gql`
     allTodos {
       id
       title
+      completed @client
     }
   }
 `;

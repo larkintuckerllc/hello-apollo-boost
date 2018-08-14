@@ -9,6 +9,9 @@ const query = gql`
 let nextTodoId = 0;
 
 export default {
+  Todo: {
+    completed: () => false,
+  },
   Mutation: {
     addTodo: (_, { text }, { cache }) => {
       const query = gql`
@@ -55,6 +58,18 @@ export default {
       const id = `TodoItem:${variables.id}`;
       const fragment = gql`
         fragment completeTodo on TodoItem {
+          completed
+        }
+      `;
+      const todo = cache.readFragment({ fragment, id });
+      const data = { ...todo, completed: !todo.completed };
+      cache.writeData({ id, data });
+      return null;
+    },
+    toggleTodo2: (_, variables, { cache }) => {
+      const id = `Todo:${variables.id}`;
+      const fragment = gql`
+        fragment completeTodo on Todo {
           completed
         }
       `;

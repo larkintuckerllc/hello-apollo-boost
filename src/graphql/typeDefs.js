@@ -10,8 +10,8 @@ export default `
   }
   type Mutation {
     addTodo(text: String!): Todo
-    decrementCounter(unused: Boolean): Int
-    incrementCounter(unused: Boolean): Int
+    decrementCounter(): Int
+    incrementCounter(): Int
     toggleTodo(id: Int!): Todo
   }
 `;

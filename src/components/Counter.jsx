@@ -19,8 +19,8 @@ const GET_COUNTER = gql`
 
 const Counter = () => (
   <Query query={GET_COUNTER}>
-    {({ data }) => {
-      return <CounterView {...data} />;
+    {({ data: { counter = 0 } = {} }) => {
+      return <CounterView counter={counter} />;
     }}
   </Query>
 );

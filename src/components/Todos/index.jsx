@@ -34,7 +34,7 @@ const GET_TODOS = gql`
 
 const Todos =  () => (
   <Query query={GET_TODOS}>
-    {({ data: { todos } }) => <TodosView todos={todos} />}
+    {({ data: { todos = [] } = {} }) => <TodosView todos={todos} />}
   </Query>
 );
 

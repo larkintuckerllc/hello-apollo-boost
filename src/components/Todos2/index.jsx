@@ -35,7 +35,7 @@ const GET_TODOS = gql`
 
 const Todos2 =  () => (
   <Query query={GET_TODOS}>
-    {({ data: { allTodos }, error, loading }) => (
+    {({ data: { allTodos = [] } = {}, error, loading }) => (
       <Todos2View
         error={error}
         loading={loading}
